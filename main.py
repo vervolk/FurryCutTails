@@ -6,6 +6,8 @@ from dataclasses import dataclass, field
 import sys, os
 import configparser
 
+
+
 def createConfig(config_path):
     """
     Создание файла конфигурации
