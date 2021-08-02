@@ -1,0 +1,9 @@
+build/
+dist/
+myenv/
+venv/
+.idea/
+.idea
+__pycache__/
+*.txt
+*.doc*
