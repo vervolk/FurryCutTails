@@ -126,24 +126,7 @@ def process_data(rrr: ListData):
              k = k +1
     return rrr
 
-home = expanduser("~")
-config_path = home+'\\masscuttails.conf'
-print(config_path)
-cut_list_string, min_length, work_dir = crudConfig(config_path)
-# длинна минимального куска
-min_length = int(min_length)
-# множество символов по которым происходит рез
-csl = set()
-for item in cut_list_string.split(','):
-    csl.add(item[1:-1])
-
-#текущая папка
-cwd = os.getcwd()
-
-eng_list = glob(work_dir+'\\'+'*01.*')
-# print(eng_list)
-key_list = dict()
-
+#
 def file_work(ru_file:str,eng_file:str,work_dir:str):
     # исходный файл исходного языка
     ss_file = eng_file
@@ -188,6 +171,20 @@ def file_work(ru_file:str,eng_file:str,work_dir:str):
         for item in rrr.translated:
             ttf.write('<{}>. {}'.format(str(k).rjust(5,'0'),item))
             k=k+1
+
+
+home = expanduser("~")
+config_path = home+'\\masscuttails.conf'
+cut_list_string, min_length, work_dir = crudConfig(config_path)
+# длинна минимального куска
+min_length = int(min_length)
+# множество символов по которым происходит рез
+csl = set()
+for item in cut_list_string.split(','):
+    csl.add(item[1:-1])
+
+eng_list = glob(work_dir+'\\'+'*01.*')
+key_list = dict()
 
 for item in eng_list:
     ru_name = str(item).replace('01.','02.')
