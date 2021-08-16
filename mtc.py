@@ -140,9 +140,8 @@ for item in cut_list_string.split(','):
 #текущая папка
 cwd = os.getcwd()
 
-eng_list = glob(work_dir+'\\'+'*eng_fcs.*')
-#ru_list =  glob('*ru_fcs.*')
-
+eng_list = glob(work_dir+'\\'+'*01.*')
+# print(eng_list)
 key_list = dict()
 
 def file_work(ru_file:str,eng_file:str,work_dir:str):
@@ -155,10 +154,8 @@ def file_work(ru_file:str,eng_file:str,work_dir:str):
     # целевой файл перевода
     tt_file = os.path.splitext(ru_file)[0]+'_split'+os.path.splitext(ru_file)[1]
 
-    print('ss_file = {}'.format(ss_file))
     with open(ss_file,'rt', errors="ignore") as ssf:
         sst = ssf.read()
-    print('st_file = {}'.format(st_file))
     with open(st_file,'rt', errors="ignore") as stf:
         stt = stf.read()
     sstl = len(sst)
@@ -193,9 +190,10 @@ def file_work(ru_file:str,eng_file:str,work_dir:str):
             k=k+1
 
 for item in eng_list:
-    ru_name = str(item).replace('eng_fcs.','ru_fcs.')
+    ru_name = str(item).replace('01.','02.')
+    # print(ru_name)
     if os.path.exists(ru_name):
-        print(item,ru_name,work_dir)
+        # print(item,ru_name,work_dir)
         file_work(item,ru_name,work_dir)
 
 

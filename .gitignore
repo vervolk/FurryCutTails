@@ -9,4 +9,6 @@ __pycache__/
 *.doc*
 *.spec
 *.conf
+test.py
+
 

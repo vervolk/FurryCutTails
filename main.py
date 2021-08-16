@@ -1,6 +1,7 @@
 # (c) 2021 vervolk Davide Norton
 # FurryCutTails скрипт разбиения двух текстов на пропорциональные фрагменты.
-# при запуске два входных параметра
+# при запуске два входных параметра имя файла исходного текста и имя файла перевода
+# файлы должны быть в кодировке cp1251
 # pyinstaller --onefile main.py
 from dataclasses import dataclass, field
 import sys, os
