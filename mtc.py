@@ -164,12 +164,12 @@ def file_work(ru_file:str,eng_file:str,work_dir:str):
     k=0
     with open(ts_file,'wt') as tsf:
         for item in rrr.sourse:
-            tsf.write('<{}>. {}'.format(str(k).rjust(5,'0'),item))
+            tsf.write('<{}>.{}'.format(str(k).rjust(5,'0'),item))
             k = k+1
     k=0
     with open(tt_file,'wt') as ttf:
         for item in rrr.translated:
-            ttf.write('<{}>. {}'.format(str(k).rjust(5,'0'),item))
+            ttf.write('<{}>.{}'.format(str(k).rjust(5,'0'),item))
             k=k+1
 
 
