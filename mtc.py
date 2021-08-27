@@ -46,13 +46,15 @@ def cut_twice(st):
     stp = ''
     lst = len(st)
     if lst > 2:
-        middle_cut = lst // 2
+        middle_cut = lst // 2 - 1
         ftp = st[0:middle_cut]
         while middle_cut < lst:
             if st[middle_cut:middle_cut + 1] not in csl:
                 ftp = ftp + st[middle_cut:middle_cut + 1]
                 middle_cut = middle_cut + 1
             else:
+                ftp = ftp + st[middle_cut:middle_cut + 1]
+                middle_cut = middle_cut + 1
                 break
         stp = st[middle_cut:]
     return ftp ,stp
@@ -127,7 +129,7 @@ def process_data(rrr: ListData):
     return rrr
 
 #
-def file_work(ru_file:str,eng_file:str,work_dir:str):
+def file_work(ru_file:str,eng_file:str):
     # исходный файл исходного языка
     ss_file = eng_file
     # исходный переводной файл
@@ -184,14 +186,11 @@ for item in cut_list_string.split(','):
     csl.add(item[1:-1])
 
 eng_list = glob(work_dir+'\\'+'*01.*')
-key_list = dict()
 
 for item in eng_list:
     ru_name = str(item).replace('01.','02.')
-    # print(ru_name)
     if os.path.exists(ru_name):
-        # print(item,ru_name,work_dir)
-        file_work(item,ru_name,work_dir)
+        file_work(item,ru_name)
 
 
 
